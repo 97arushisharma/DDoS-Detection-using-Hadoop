@@ -3,9 +3,9 @@
 
 import sys
 import math
+import ast
 from operator import itemgetter
 
-a=[]
 wordcount={}
 count=0
 S=0
@@ -15,22 +15,8 @@ entropy=0
 # input comes from STDIN
 for line in sys.stdin:
     # remove leading and trailing whitespace
-    line = line.strip()
-    line = line.split()
+    wordcount=ast.literal_eval(line)
 
-    try:
-        #print(line[2] + "\t" + line[4] + "\t" + line[5])
-        a.append(line[2])
-        
-    except:
-        print("-")
-print()
-
-for word in a:
-	if word not in wordcount:
-		wordcount[word] = 1
-	else:
-		wordcount[word] += 1
 for k,v in wordcount.items():
 	print (k, v)
 	count= count+1
